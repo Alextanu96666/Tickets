@@ -1,3 +1,20 @@
+<?php
+    include_once 'admin/register_function.php';
+    
+    $obj = new Registration();
+    if (isset($_POST['login'])) {
+        $data_array2 = [
+          
+          ':email' =>  filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING),
+          ':password' =>  filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING)
+          
+        ];
+        
+        
+        $obj->Login($data_array2);
+      }
+?>
+
 <!DOCTYPE html>  
  <html>  
       <head>  

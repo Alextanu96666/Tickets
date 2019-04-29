@@ -1,3 +1,20 @@
+<?php
+  include_once 'admin/register_function.php';
+  $registration = new Registration();
+  if (isset($_POST['register-btn'])) {
+    $data_array = [
+      ':first' =>  filter_input(INPUT_POST, 'firstName', FILTER_SANITIZE_STRING),
+      ':last' =>  filter_input(INPUT_POST, 'lastName', FILTER_SANITIZE_STRING),
+      ':email' =>  filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING),
+      ':password' =>  filter_input(INPUT_POST, 'psw', FILTER_SANITIZE_STRING),
+      ':password_repeat' =>  filter_input(INPUT_POST, 'psw-repeat', FILTER_SANITIZE_STRING)
+    ];
+    
+    
+    $registration->VerifyEmail($data_array);
+  }
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,7 +23,7 @@
 </head>
 <body>
 
-<form action="/action_page.php">
+<form action="" method="post">
   <div class="container">
     <h1>Register</h1>
     <p>Please fill in this form to create an account.</p>
@@ -29,7 +46,7 @@
     <hr>
     <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
 
-    <button type="submit" class="registerbtn">Register</button>
+    <button type="submit" class="registerbtn" name="register-btn">Register</button>
   </div>
   
   <div class="container signin">
@@ -39,3 +56,5 @@
 
 </body>
 </html>
+
+

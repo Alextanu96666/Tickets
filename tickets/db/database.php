@@ -3,7 +3,7 @@ class db {
     private $username = "root";
     private $password = "";
     private $host = "localhost";
-    private $dbname = "classicmodels";
+    private $dbname = "progetto";
     private $charset = "utf8"; 
 
     protected $conn;
