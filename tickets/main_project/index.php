@@ -1,4 +1,5 @@
 <?php
+session_start();
 include '../includes/header.php';
 require_once 'admin/eventsFunctions.php';
 
@@ -6,6 +7,8 @@ $events = new Events();
 $rows = $events->listEvents();
 
 $i = 3;
+
+
 
 ?>
 
@@ -30,7 +33,7 @@ $i = 3;
                 <div class = "primaryElem">
                     <div class ="headerPanel"> <span class="shop-item-title"><?php echo($row['eventName'])?></span></div>
                     <div class ="bodyPanel"><img src="imgs/<?php echo($row['eventIMG'])?>" class ="responsive_image"></div>
-                    <div class ="footerPanel"><a href="lookfortickets.php?id=<?php echo($row['eventID'])?>&eventnamn=<?php echo($row['eventName'])?>" class="btn-tickets">Choose tickets</a>
+                    <div class ="footerPanel"><a href="ticketpage.php?id=<?php echo($row['eventID'])?>&eventnamn=<?php echo($row['eventName'])?>&price=<?php echo($row['priceEach'])?>" class="btn-tickets">Choose tickets</a>
                    <h2> Price: <span class="price-item" name="cambio"> <?php echo($row['priceEach'])?> KR </span></h2> 
                   </div>
             </div>

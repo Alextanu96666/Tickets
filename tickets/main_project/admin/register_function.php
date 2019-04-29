@@ -35,7 +35,7 @@ session_start();
         $stmt->execute();
         if ($stmt->rowCount() == 1) {
             $_SESSION['email'] = $data_array2[':email'];  
-            header("location:lookfortickets.php");
+            header("location:set_session.php");
           
         }
 
