@@ -5,10 +5,12 @@ console.log(button);
 });
 
 function saveTickets() {
+    localStorage.eventname = document.getElementById('event').innerText;
     localStorage.fname = document.getElementById("first").value;
     localStorage.lname = document.getElementById("last").value;
     localStorage.quant = document.getElementById("quantity_input").value;
-    window.location.href = 'varukorg.php';
+  //  window.location.href = 'varukorg.php';
+    console.log(localStorage.eventname);
     
 }
 
@@ -19,6 +21,3 @@ function loadCookie() {
     document.getElementById("quantity_input").value = localStorage.quant;
 }
 
-function test() {
-    console.log(localStorage.fname);
-}

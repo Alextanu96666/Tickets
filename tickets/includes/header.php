@@ -21,7 +21,7 @@
                 <ul>
                     <li><a href="../main_project/registration.php">Home</a></li>
                     <li><a href="../main_project/login.php">About</a></li>
-                    <li><a href="#">Pricing</a></li>
+                    <li><a href="../main_project/varukorg.php">Varukorg</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
             </nav>
