@@ -9,8 +9,10 @@ function saveTickets() {
     localStorage.fname = document.getElementById("first").value;
     localStorage.lname = document.getElementById("last").value;
     localStorage.quant = document.getElementById("quantity_input").value;
-  //  window.location.href = 'varukorg.php';
-    console.log(localStorage.eventname);
+    
+    localStorage.price = document.getElementById("thePrice").innerText;
+ //   window.location.href = 'varukorg.php';
+    console.log(localStorage.price);
     
 }
 
