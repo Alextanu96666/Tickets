@@ -35,24 +35,8 @@ document.addEventListener("DOMContentLoaded", function(){
    }
    random();
 
-   /* function sendData() {
-        let local = localStorage;
-        let string = JSON.stringify(local)
-        string = JSON.parse(string);
-        $.ajax({
-            type: "POST",
-            url: "retrieve_data.php",
-            dataType: "text",
-            data: {"data": string},
-            success: function(data) {
-                
-                window.location.replace('landing.php?id=<?php echo $id ?>&price=<')
-                
-            }
-        })
-            
-        }
-*/
+   
+
     
     });
     

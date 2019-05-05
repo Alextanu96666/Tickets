@@ -19,10 +19,11 @@
             
             <nav>
                 <ul>
-                    <li><a href="../main_project/registration.php">Home</a></li>
-                    <li><a href="../main_project/login.php">About</a></li>
+                <li><a href="../main_project/admin.php">CRUD</a></li>
+                    <li><a href="../main_project/registration.php">Sign Up</a></li>
+                    <li><a href="../main_project/login.php">Login</a></li>
                     <li><a href="../main_project/varukorg.php">Varukorg</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="../main_project/logout.php">Logout</a></li>
                 </ul>
             </nav>
         </div>

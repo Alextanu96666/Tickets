@@ -3,20 +3,7 @@
 
 
     require_once 'admin/varukorg.function.php';
-    if (isset($_POST['submit'])){
-        
-        $quantity = $_POST['quantity-ghost'];
-        $id = $_GET['id'];
-        $name = $_GET['eventnamn'];
-        $datum = $_GET['datum'];
-        $instock = $_GET['instock'];
-        $user = $_GET['user'];
-        $obj = new Varukorg();
-        $obj->decrement($id, $name, $quantity, $instock, $datum, $user);
-        $obj->insertToDb($id, $name, $quantity, $instock, $datum, $user);
-        
     
-} 
 
 
 
@@ -82,7 +69,8 @@ tr:nth-child(even) {
 Total: <span id="total"> 0 </span>
 
 <input type="number" id="ghost" name="quantity-ghost" min="1" max="10" readonly style="display: none">
-<button name="submit" id="buy-btn" onclick="sendData()"> BUY </button>
+<button name="submit" id="buy-btn" onclick="sendData()"> BUY </button> 
+
 
 </form>
 
@@ -107,6 +95,24 @@ let newInt2 = +localStorage.getItem('price');
         
     }
 
+    function sendData() {
+        let local = localStorage;
+        let string = JSON.stringify(local)
+        string = JSON.parse(string);
+        $.ajax({
+            type: "POST",
+            url: "retrieve_data.php",
+            dataType: "text",
+            data: {"data": string},
+            success: function(data) {
+                
+                window.location.replace('display_tickets.php')
+                localStorage.clear();
+            }
+        })
+            
+        }
+
     
             
         
@@ -119,6 +125,20 @@ let newInt2 = +localStorage.getItem('price');
 </html>
 
 <?php 
+if (isset($_POST['submit'])){
+        
+    $quantity = $_POST['quantity-ghost'];
+    $id = $_GET['id'];
+    $name = $_GET['eventnamn'];
+    $datum = $_GET['datum'];
+    $instock = $_GET['instock'];
+    $user = $_GET['user'];
+    
+    $obj = new Varukorg();
+    $obj->decrement($id, $name, $quantity, $instock, $datum, $user);
+    $obj->insertToDb($id, $name, $quantity, $instock, $datum, $user);
+    
 
+} 
 
 ?>

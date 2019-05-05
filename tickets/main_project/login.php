@@ -12,6 +12,7 @@
         
         
         $obj->Login($data_array2);
+        $obj->AdminLogin($data_array2);
       }
 ?>
 

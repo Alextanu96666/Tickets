@@ -15,4 +15,8 @@ else
     echo '<br /><br /><a href="index.php">Login</a>';
 
 }  
+
+if (isset($_SESSION['admin'])) {
+    header('location: registration.php');
+}
 ?>

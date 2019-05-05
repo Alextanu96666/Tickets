@@ -41,6 +41,20 @@ session_start();
 
     }
 
+    public function AdminLogin($data_array2) {
+        $stmt = $this->db->prepare("SELECT email, password FROM admin WHERE email = :email AND password = :password");
+        $stmt->bindValue(':email', $data_array2[':email'], PDO::PARAM_STR);
+        $stmt->bindValue(':password', $data_array2[':password'], PDO::PARAM_STR);
+        $stmt->execute();
+        if ($stmt->rowCount() == 1) {
+            $_SESSION['admin'] = $data_array2[':email'];
+            echo ('success');
+            echo '<a href="CRUD/index.php">CRUD</a>';
+           
+        }
+    }
+    
+
 }
 
     
