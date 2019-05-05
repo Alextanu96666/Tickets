@@ -1,4 +1,5 @@
 <?php
+//if session is set you can access to the events
 session_start();
 if(isset($_SESSION['email']))  
 {  

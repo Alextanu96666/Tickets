@@ -1,6 +1,6 @@
 <?php
     include_once 'admin/register_function.php';
-    
+    //calling method for the Login
     $obj = new Registration();
     if (isset($_POST['login'])) {
         $data_array2 = [

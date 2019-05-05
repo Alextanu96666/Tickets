@@ -72,7 +72,7 @@ tr:nth-child(even) {
 
 </table>
 
-<a href = "index.php"> Home </a>
+<a href = "activate.php?quantity=<?php echo  $data['quant']?>&event=<?php echo $data['eventname']?>&first=<?php echo $data ['fname']?>&last=<?php echo $data['lname']?>&price=<?php echo $data['price']?>"> Home </a>
 
 </body>
 <script type="text/javascript">

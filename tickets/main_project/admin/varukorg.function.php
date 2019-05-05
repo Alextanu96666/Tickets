@@ -8,14 +8,14 @@ class Varukorg
         $this->db = new db();
         $this->db = $this->db->connect();
     }
-
+//decrementing the quantity in stock in proportion with the quantity taht the customer chose
     public function decrement($id, $name, $quantity, $instock, $datum, $user) {
         $stmt = $this->db->query("UPDATE events SET inStock=inStock-$quantity WHERE eventId = $id");
         
         
         
     }
-
+        // Saving the info from the shopping cart inside the db
     public function insertToDb($id, $name, $quantity, $instock, $datum, $user) {
         $stmt = $this->db->prepare("SELECT usersID, email FROM users WHERE email = :user");
         $stmt->bindValue(':user', $user, PDO::PARAM_STR);

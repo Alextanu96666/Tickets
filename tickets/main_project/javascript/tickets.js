@@ -3,7 +3,7 @@ var button = document.getElementById("loadCookiebtn");
 console.log(button);
 
 });
-
+//saving to localstorage
 function saveTickets() {
     localStorage.eventname = document.getElementById('event').innerText;
     localStorage.fname = document.getElementById("first").value;

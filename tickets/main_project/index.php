@@ -20,8 +20,12 @@ $i = 3;
 </head>
 
 <body>
+
+  
 <div class="container2">
     <?php
+
+    // displaying events from the db on the index page
     if (empty($rows)) { } else {
         foreach ($rows as $row) {
             if ($i == 0) {

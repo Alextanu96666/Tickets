@@ -1,4 +1,6 @@
 <?php
+
+//data from ajax
 $data = $_POST['data'];
 $newArray = [];
 

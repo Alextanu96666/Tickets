@@ -75,6 +75,8 @@ Total: <span id="total"> 0 </span>
 </form>
 
 </body>
+
+
 <script type="text/javascript">
 let newInt = +localStorage.getItem('quant');
 let newInt2 = +localStorage.getItem('price');
@@ -94,7 +96,7 @@ let newInt2 = +localStorage.getItem('price');
         
         
     }
-
+// saving data in cookie to re-use and create rows to Cart with javascript (up here)
     function sendData() {
         let local = localStorage;
         let string = JSON.stringify(local)
