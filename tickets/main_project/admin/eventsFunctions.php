@@ -10,7 +10,7 @@ class Events
     }
 
     public function listEvents() {
-       $stmt = $this->db->prepare("SELECT eventName, eventIMG, eventID, priceEach FROM events");
+       $stmt = $this->db->prepare("SELECT eventName, eventIMG, eventID, priceEach, inStock, eventDate FROM events");
        if ($stmt->execute()) {
         if ($stmt->rowCount() > 0) {
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {

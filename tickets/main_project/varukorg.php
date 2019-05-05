@@ -1,12 +1,22 @@
 <?php
-require_once 'admin/varukorg.function.php';
-if (isset($_POST['submit'])){
-    $quantity = $_POST['quantity-ghost'];
-    $id = $_GET['id'];
-    $name = $_GET['eventnamn'];
-    $obj = new Varukorg();
-    $obj->test($id, $name, $quantity);
-}
+
+
+
+    require_once 'admin/varukorg.function.php';
+    if (isset($_POST['submit'])){
+        
+        $quantity = $_POST['quantity-ghost'];
+        $id = $_GET['id'];
+        $name = $_GET['eventnamn'];
+        $datum = $_GET['datum'];
+        $instock = $_GET['instock'];
+        $user = $_GET['user'];
+        $obj = new Varukorg();
+        $obj->decrement($id, $name, $quantity, $instock, $datum, $user);
+        $obj->insertToDb($id, $name, $quantity, $instock, $datum, $user);
+        
+    
+} 
 
 
 
