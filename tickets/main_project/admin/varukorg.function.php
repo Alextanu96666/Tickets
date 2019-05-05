@@ -25,11 +25,28 @@ class Varukorg
                     $stmt2->bindValue(':user', $user, PDO::PARAM_STR);
                     $stmt2->bindValue(':id', $row['usersID'], PDO::PARAM_STR);
                     if ($stmt2->execute()) {
-                        
-                        echo ('success');
+                        $sql1=$this->db->prepare("SELECT ordersID, user FROM orders WHERE user = :user");
+                        $sql1->bindValue(':user', $user, PDO::PARAM_STR);
+                        if ($sql1->execute()) {
+                            while ($row2 = $sql1->fetch(PDO::FETCH_ASSOC)) {
+                                echo $row2['ordersID'];
+                                $sql2=$this->db->prepare("SELECT eventID FROM events WHERE eventID = :id");
+                                $sql2->bindValue(':id', $id, PDO::PARAM_STR);
+                                if ($sql2->execute()) {
+                                    while ($row3 = $sql2->fetch(PDO::FETCH_ASSOC)) {
+                                        $sqlfinal = $this->db->prepare("INSERT INTO ordersdetail(ordersID, eventID) VALUES (:order, :id)");
+                                        $sqlfinal->bindValue(':order', $row2['ordersID'], PDO::PARAM_STR);
+                                        $sqlfinal->bindValue(':id', $row3['eventID'], PDO::PARAM_STR);
+                                        $sqlfinal->execute();
+                                    }
+                                }
+                            }
+                        }
+                         
                     }
                 }
             }
+            
 
              
                 
